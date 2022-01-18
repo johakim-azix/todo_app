@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Todo app</title>
+
+</head>
+<body>
+<div class="img-container">
+  <img src="images/bg-desktop-light.jpg" style="width: 100%" alt="">
+</div>
+<div class="main-scene">
+  <div class="container">
+    <div class="header">
+      <h1>ToDo</h1>
+      <!-- add the dark mode toggler -->
+      <button>mode</button>
+    </div>
+    <div class="add-todo">
+      <div class="radio"></div>
+      <div >
+        <div class="scrollable content">
+          <div class="title" contenteditable="true">
+            Create new todo ...
+          </div>
+          <div class="description" contenteditable="true">
+            Describe your task here ...
+          </div>
+        </div>
+        <div class="controls">
+          <span></span>
+          <div>
+            <button>Drop</button>
+            <button>Save</button>
+          </div>
+        </div>
+      </div>
+<!--      <div class="title">-->
+<!--        <div class="radio"></div>-->
+<!--        <div class="content" contenteditable="true">Create new todo ...</div>-->
+<!--      </div>-->
+<!--      <div class="description">-->
+<!--        Describe your task here ...-->
+<!--      </div>-->
+<!--      <div class="controls">-->
+<!--        <span></span>-->
+<!--        <div>-->
+<!--          <button >Drop</button>-->
+<!--          <button>Save</button>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+    <div class="todo-list">
+      <div class="queue"></div>
+      <div class="navigation">
+        <span>5 items left</span>
+        <div class="visible-sm">
+          <button>all</button>
+          <button>Active</button>
+          <button>Completed</button>
+        </div>
+        <button>Clear Completed</button>
+      </div>
+    </div>
+    <div>
+      <div class="visible-xs">
+        <div>
+          <button>all</button>
+          <button>Active</button>
+          <button>Completed</button>
+        </div>
+        <span>Drag and drop to reorder list</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
