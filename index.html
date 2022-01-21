@@ -1,83 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="css/index.css">
-  <title>Todo app</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/font_awsome/css/all.css">
+    <title>Todo app</title>
 
 </head>
 <body>
 <div class="img-container">
-  <img src="images/bg-desktop-light.jpg" style="width: 100%" alt="">
+<!--    <img src="images/bg-mmobile-light.jpg" style="width: 100%" alt="">-->
 </div>
-<div class="main-scene">
-  <div class="container">
-    <div class="header">
-      <h1>ToDo</h1>
-      <!-- add the dark mode toggler -->
-      <button>mode</button>
+<div class="main-scene" onscroll="scrolled(this)">
+    <div class="collapsing-app-bar" style="box-shadow: 0 4px 6px rgba(0,0,0,.4); z-index: 10">
+        <div class="app-bar-content" style="">
+            <div class="toolbar" style="">
+                <h1 class="app-name">TODO</h1>
+                <button class="btn dark-mode-toggle">
+                    <img src="images/icon-moon.svg" alt="">
+                </button>
+            </div>
+            <div class="add-todo">
+                <div class="radio"></div>
+                <div>
+                    <div class="scrollable content">
+                        <div class="title" contenteditable="true">
+                            Create new todo ...
+                        </div>
+                        <div class="description" contenteditable="true">
+                            Describe your task here ...
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <span></span>
+                        <div>
+                            <button class="btn">Drop</button>
+                            <button class="btn">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar" style="visibility: hidden;margin: 0; border-top: solid red 1px; padding-top: 10px; height: 60px">
+            <h1 class="app-name">TODO</h1>
+            <button class="btn dark-mode-toggle">
+                <img src="images/icon-moon.svg" alt="">
+            </button>
+        </div>
     </div>
-    <div class="add-todo">
-      <div class="radio"></div>
-      <div >
-        <div class="scrollable content">
-          <div class="title" contenteditable="true">
-            Create new todo ...
-          </div>
-          <div class="description" contenteditable="true">
-            Describe your task here ...
-          </div>
+    <div class="main-content">
+        <div class="todo-list">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Find a todo...">
+                <button class="btn search-submit">
+                    <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="queue">
+                <div onclick="" class="todo">
+                    <input name="todo-details-toggle" type="checkbox" style="display: none">
+                    <div class="title-container" >
+                        <div onclick="" class="radio" style="margin-left: 0!important"></div>
+                        <div class="title" contenteditable="true" style="margin-right: 0!important">
+                            Finir de designer cette vue ...
+                        </div>
+                        <button class="btn" style="height: fit-content; padding: 5px!important; margin-top: 10px">
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </div>
+                    <div class="description-container"  contenteditable="true">
+                        Fondre la page et la rendre pleinement responsive pour les divers support.
+                    </div>
+                    <div class="controls">
+                        <span></span>
+                        <div>
+                            <button class="btn save">
+                                <i class="fa fa-save"></i> Save
+                            </button>
+                            <button class="btn save">
+                                <i class="fa fa-pen"></i> Edit
+                            </button>
+                            <button class="btn delete" >
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation" >
+                <small>5 items left</small>
+                <div class="visible-sm" style="display: none">
+                    <button class="btn active">all</button>
+                    <button class="btn">Active</button>
+                    <button class="btn">Completed</button>
+                </div>
+                <button class="btn">Clear Completed</button>
+            </div>
         </div>
-        <div class="controls">
-          <span></span>
-          <div>
-            <button>Drop</button>
-            <button>Save</button>
-          </div>
+        <div style="display: block" class="visible-xs state-btn-container">
+            <div>
+                <button class="btn active">all</button>
+                <button class="btn">Active</button>
+                <button class="btn">Completed</button>
+            </div>
         </div>
-      </div>
-<!--      <div class="title">-->
-<!--        <div class="radio"></div>-->
-<!--        <div class="content" contenteditable="true">Create new todo ...</div>-->
-<!--      </div>-->
-<!--      <div class="description">-->
-<!--        Describe your task here ...-->
-<!--      </div>-->
-<!--      <div class="controls">-->
-<!--        <span></span>-->
-<!--        <div>-->
-<!--          <button >Drop</button>-->
-<!--          <button>Save</button>-->
-<!--        </div>-->
-<!--      </div>-->
-    </div>
-    <div class="todo-list">
-      <div class="queue"></div>
-      <div class="navigation">
-        <span>5 items left</span>
-        <div class="visible-sm">
-          <button>all</button>
-          <button>Active</button>
-          <button>Completed</button>
-        </div>
-        <button>Clear Completed</button>
-      </div>
-    </div>
-    <div>
-      <div class="visible-xs">
-        <div>
-          <button>all</button>
-          <button>Active</button>
-          <button>Completed</button>
-        </div>
-        <span>Drag and drop to reorder list</span>
-      </div>
+
+        <span>Drag and drop to reprder list</span>
     </div>
 
-  </div>
+
+
+
+    <!--    <div class="container">-->
+<!--        <div class="header">-->
+<!--            <h1>TODO</h1>-->
+<!--            &lt;!&ndash; add the dark mode toggler &ndash;&gt;-->
+<!--            <button class="btn ">-->
+<!--                <img src="images/icon-moon.svg" alt="">-->
+<!--            </button>-->
+<!--        </div>-->
+<!--        <div class="add-todo">-->
+<!--            <div class="radio"></div>-->
+<!--            <div>-->
+<!--                <div class="scrollable content">-->
+<!--                    <div class="title" contenteditable="true">-->
+<!--                        Create new todo ...-->
+<!--                    </div>-->
+<!--                    <div class="description" contenteditable="true">-->
+<!--                        Describe your task here ...-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="controls">-->
+<!--                    <span></span>-->
+<!--                    <div>-->
+<!--                        <button class="btn">Drop</button>-->
+<!--                        <button class="btn">Save</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="todo-list" style="">-->
+<!--            <div class="queue">-->
+<!--                &lt;!&ndash;todo: todo go here &ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="navigation">-->
+<!--                <small>5 items left</small>-->
+<!--                <div class="visible-sm">-->
+<!--                    <button class="btn active">all</button>-->
+<!--                    <button class="btn">Active</button>-->
+<!--                    <button class="btn">Completed</button>-->
+<!--                </div>-->
+<!--                <button class="btn">Clear Completed</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        <div style="display: none" class="visible-xs state-btn-container">-->
+<!--            <div>-->
+<!--                <button class="btn active">all</button>-->
+<!--                <button class="btn">Active</button>-->
+<!--                <button class="btn">Completed</button>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--    </div>-->
 </div>
+<script src="test.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>

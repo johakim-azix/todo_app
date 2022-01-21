@@ -54,3 +54,43 @@ function isValid(string) {
 function isMatch(paire){
     return (paire === "()" || paire === "{}" || paire === "[]") 
 }
+
+
+
+function sift(string){
+    let result = []
+    let strArray = string.split("")
+    let arrays = []
+    let nonLetterCharArray = []
+    let lastNonLetterIndex = 0
+    strArray.forEach((char, index) => {
+        if(!(/[a-zA-Z]/).test(char)) {
+            let array = []
+            for (let i = lastNonLetterIndex; i < index; i++) {
+                array.push(strArray[i])
+            }
+            // console.log(array)
+            arrays.push(array.reverse())
+            nonLetterCharArray.push(strArray[index])
+            lastNonLetterIndex = index + 1
+        }
+        if ((/[a-zA-Z]/).test(char) && index === (strArray.length - 1)){
+            let array = []
+            for (let i = lastNonLetterIndex; i < strArray.length; i++) {
+                array.push(strArray[i])
+            }
+            arrays.push(array.reverse())
+            nonLetterCharArray.push(strArray[index])
+        }
+    })
+    arrays.reverse()
+    arrays.forEach((array, index) => {
+
+        result.push([].concat(array, nonLetterCharArray[index]))
+    })
+    console.log(string)
+    console.log(JSON.stringify(result).replaceAll('","','').replaceAll('"','').replaceAll('"','').replaceAll('"','').replaceAll('[','').replaceAll(']','').replaceAll(',',''))
+}
+
+
+sift("dxgtsz-dddfffdd-pytp+h5")
