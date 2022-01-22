@@ -12,9 +12,9 @@
 
 </head>
 <body>
-<div class="img-container">
-<!--    <img src="images/bg-mmobile-light.jpg" style="width: 100%" alt="">-->
-</div>
+<!--<div class="img-container">-->
+<!--    &lt;!&ndash;    <img src="images/bg-mmobile-light.jpg" style="width: 100%" alt="">&ndash;&gt;-->
+<!--</div>-->
 <div class="main-scene" onscroll="scrolled(this)">
     <div class="collapsing-app-bar" style="box-shadow: 0 4px 6px rgba(0,0,0,.4); z-index: 10">
         <div class="app-bar-content" style="">
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="toolbar" style="visibility: hidden;margin: 0; border-top: solid red 1px; padding-top: 10px; height: 60px">
+        <div class="toolbar">
             <h1 class="app-name">TODO</h1>
             <button class="btn dark-mode-toggle">
                 <img src="images/icon-moon.svg" alt="">
@@ -62,39 +62,74 @@
                 </button>
             </div>
             <div class="queue">
-                <div onclick="" class="todo">
-                    <input name="todo-details-toggle" type="checkbox" style="display: none">
-                    <div class="title-container" >
-                        <div onclick="" class="radio" style="margin-left: 0!important"></div>
-                        <div class="title" contenteditable="true" style="margin-right: 0!important">
+                <div id="todo-item-1" class="todo">
+                    <input name="todo-details-toggle" type="checkbox">
+                    <input name="content-editable-toggle" type="checkbox">
+                    <div class="title-container">
+                        <div onclick="toggleTodoState(this)" class="radio">
+                            <img src="images/icon-check.svg" alt="">
+                        </div>
+                        <div class="title"  style="margin-right: 0!important">
                             Finir de designer cette vue ...
                         </div>
-                        <button class="btn" style="height: fit-content; padding: 5px!important; margin-top: 10px">
+                        <button onclick="toggleDetails(this)" class="btn toggle-details">
                             <i class="fa fa-caret-down"></i>
                         </button>
                     </div>
-                    <div class="description-container"  contenteditable="true">
+                    <div class="description-container" >
                         Fondre la page et la rendre pleinement responsive pour les divers support.
                     </div>
                     <div class="controls">
                         <span></span>
                         <div>
-                            <button class="btn save">
+                            <button onclick="saveChanges(this)" class="btn save">
                                 <i class="fa fa-save"></i> Save
                             </button>
-                            <button class="btn save">
+                            <button onclick="editTodo(this)" class="btn save">
                                 <i class="fa fa-pen"></i> Edit
                             </button>
-                            <button class="btn delete" >
+                            <button onclick="deleteTodo(this)" class="btn delete">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="todo-item-2" class="todo">
+                    <input name="todo-details-toggle" type="checkbox">
+                    <input name="content-editable-toggle" type="checkbox">
+                    <div class="title-container">
+                        <div onclick="toggleTodoState(this)" class="radio">
+                            <img src="images/icon-check.svg" alt="">
+                        </div>
+                        <div class="title"  style="margin-right: 0!important">
+                            Finir avec ce fichu js ...
+                        </div>
+                        <button onclick="toggleDetails(this)" class="btn toggle-details">
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </div>
+                    <div class="description-container" >
+                        Je dois prendre en charge la majeure partie des evenement qui auron lieu sur la un todo et sur l'ensemble ..
+                    </div>
+                    <div class="controls">
+                        <span></span>
+                        <div>
+                            <button onclick="saveChanges(this)" class="btn save">
+                                <i class="fa fa-save"></i> Save
+                            </button>
+                            <button onclick="editTodo(this)" class="btn save">
+                                <i class="fa fa-pen"></i> Edit
+                            </button>
+                            <button onclick="deleteTodoIntent(this)" class="btn delete">
                                 <i class="fa fa-trash"></i> Delete
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="navigation" >
+            <div class="navigation">
                 <small>5 items left</small>
-                <div class="visible-sm" style="display: none">
+                <div class="visible-sm" style="display: flex">
                     <button class="btn active">all</button>
                     <button class="btn">Active</button>
                     <button class="btn">Completed</button>
@@ -102,7 +137,7 @@
                 <button class="btn">Clear Completed</button>
             </div>
         </div>
-        <div style="display: block" class="visible-xs state-btn-container">
+        <div style="display: none" class="visible-xs state-btn-container">
             <div>
                 <button class="btn active">all</button>
                 <button class="btn">Active</button>
@@ -114,62 +149,60 @@
     </div>
 
 
-
-
     <!--    <div class="container">-->
-<!--        <div class="header">-->
-<!--            <h1>TODO</h1>-->
-<!--            &lt;!&ndash; add the dark mode toggler &ndash;&gt;-->
-<!--            <button class="btn ">-->
-<!--                <img src="images/icon-moon.svg" alt="">-->
-<!--            </button>-->
-<!--        </div>-->
-<!--        <div class="add-todo">-->
-<!--            <div class="radio"></div>-->
-<!--            <div>-->
-<!--                <div class="scrollable content">-->
-<!--                    <div class="title" contenteditable="true">-->
-<!--                        Create new todo ...-->
-<!--                    </div>-->
-<!--                    <div class="description" contenteditable="true">-->
-<!--                        Describe your task here ...-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="controls">-->
-<!--                    <span></span>-->
-<!--                    <div>-->
-<!--                        <button class="btn">Drop</button>-->
-<!--                        <button class="btn">Save</button>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="todo-list" style="">-->
-<!--            <div class="queue">-->
-<!--                &lt;!&ndash;todo: todo go here &ndash;&gt;-->
-<!--            </div>-->
-<!--            <div class="navigation">-->
-<!--                <small>5 items left</small>-->
-<!--                <div class="visible-sm">-->
-<!--                    <button class="btn active">all</button>-->
-<!--                    <button class="btn">Active</button>-->
-<!--                    <button class="btn">Completed</button>-->
-<!--                </div>-->
-<!--                <button class="btn">Clear Completed</button>-->
-<!--            </div>-->
-<!--        </div>-->
+    <!--        <div class="header">-->
+    <!--            <h1>TODO</h1>-->
+    <!--            &lt;!&ndash; add the dark mode toggler &ndash;&gt;-->
+    <!--            <button class="btn ">-->
+    <!--                <img src="images/icon-moon.svg" alt="">-->
+    <!--            </button>-->
+    <!--        </div>-->
+    <!--        <div class="add-todo">-->
+    <!--            <div class="radio"></div>-->
+    <!--            <div>-->
+    <!--                <div class="scrollable content">-->
+    <!--                    <div class="title" contenteditable="true">-->
+    <!--                        Create new todo ...-->
+    <!--                    </div>-->
+    <!--                    <div class="description" contenteditable="true">-->
+    <!--                        Describe your task here ...-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="controls">-->
+    <!--                    <span></span>-->
+    <!--                    <div>-->
+    <!--                        <button class="btn">Drop</button>-->
+    <!--                        <button class="btn">Save</button>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="todo-list" style="">-->
+    <!--            <div class="queue">-->
+    <!--                &lt;!&ndash;todo: todo go here &ndash;&gt;-->
+    <!--            </div>-->
+    <!--            <div class="navigation">-->
+    <!--                <small>5 items left</small>-->
+    <!--                <div class="visible-sm">-->
+    <!--                    <button class="btn active">all</button>-->
+    <!--                    <button class="btn">Active</button>-->
+    <!--                    <button class="btn">Completed</button>-->
+    <!--                </div>-->
+    <!--                <button class="btn">Clear Completed</button>-->
+    <!--            </div>-->
+    <!--        </div>-->
 
 
-<!--        <div style="display: none" class="visible-xs state-btn-container">-->
-<!--            <div>-->
-<!--                <button class="btn active">all</button>-->
-<!--                <button class="btn">Active</button>-->
-<!--                <button class="btn">Completed</button>-->
-<!--            </div>-->
-<!--        </div>-->
+    <!--        <div style="display: none" class="visible-xs state-btn-container">-->
+    <!--            <div>-->
+    <!--                <button class="btn active">all</button>-->
+    <!--                <button class="btn">Active</button>-->
+    <!--                <button class="btn">Completed</button>-->
+    <!--            </div>-->
+    <!--        </div>-->
 
 
-<!--    </div>-->
+    <!--    </div>-->
 </div>
 <script src="test.js"></script>
 <script src="js/index.js"></script>
