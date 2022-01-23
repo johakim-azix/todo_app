@@ -1,0 +1,442 @@
+{
+  "tasks" : [
+    {
+      "id" : 1,
+      "isCompleted" : true,
+      "title" : "Handle scroll and app bar layout event",
+      "description" : "should listen to every srol events on both main-content and main scene then trigger the app bar layout scroll event "
+    },
+    {
+      "id" : 2,
+      "isCompleted" : false,
+      "title" : "Complete the todo queue class",
+      "description" : "add required methods to complete the todo class "
+    },
+    {
+      "id" : 3,
+      "isCompleted" : false,
+      "title" : "Build the data.json class",
+      "description" : "Add the fille responsible for holding fake data for testing ..."
+    },
+    {
+      "id" : 4,
+      "isCompleted" : false,
+      "title" : "Add an access to idb ",
+      "description" : "Add an the repository for managing data and "
+    },
+    {
+      "id" : 5,
+      "isCompleted" : false,
+      "title" : "Complete the add todo event",
+      "description" : "add required methods to complete the todo class "
+    },
+    {
+      "id" : 6,
+      "isCompleted" : false,
+      "title" : "Build vew holder class",
+      "description" : "The class responsible to create and bind the item view before rendering it"
+    },
+    {
+      "id" : 7,
+      "isCompleted" : false,
+      "title" : "Watch a youtube tutorial on how to use IDB",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 8,
+      "isCompleted" : false,
+      "title" : "Sort tasks by their states",
+      "description" : "Handle action on the navigation for every sreens"
+    },
+    {
+      "id" : 9,
+      "isCompleted" : false,
+      "title" : "Handle the clear completed event",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 10,
+      "isCompleted" : false,
+      "title" : "Handle drag and drp reordering ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 11,
+      "isCompleted" : false,
+      "title" : "Handle left tasks caption ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : false,
+      "title" : "Toggle light and dark mode ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    },
+    {
+      "id" : 12,
+      "isCompleted" : true,
+      "title" : "Handle todo search ",
+      "description" : "Enter a description..."
+    }
+  ]
+}

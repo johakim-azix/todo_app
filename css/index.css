@@ -78,7 +78,8 @@ body{
 .collapsing-app-bar > .toolbar{
     max-width: 700px;
     margin: 0 auto!important;
-    padding-top: 10px; height: 60px
+    padding-top: 10px; height: 60px;
+    display: none;
 }
 
 .app-name{
@@ -103,9 +104,9 @@ body{
 }
 
 .main-content{
-    background-color: rgba(0,0,0,.1);
+    /*background-color: rgba(0,0,0,.1);*/
     height: calc(100% - 60px);
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
     top: 260px;
     margin-bottom: 20px;
@@ -167,11 +168,15 @@ body{
 
 .todo{
     border-bottom: solid var(--LT-Very-Light-Grayish-Blue) 1px;
-    /*height: 50px;*/
     padding: 0 10px;
     overflow: hidden;
     cursor: pointer;
 }
+
+.todo:last-child{
+    border-bottom: 0!important;
+}
+
 .todo .radio{
     margin-top: 10px;
     margin-left: 0!important;
@@ -281,28 +286,31 @@ body{
 
 
 /*todo : scroll behavior area */
+.main-content::-webkit-scrollbar,
 .main-scene::-webkit-scrollbar {
     width: 0;
 }
 
+.main-content::-webkit-scrollbar-track,
 .main-scene::-webkit-scrollbar-track {
     background: rgba(112, 112, 112, .2);
 }
 
+.main-content::-webkit-scrollbar-thumb,
 .main-scene::-webkit-scrollbar-thumb {
     background-color: rgba(112, 112, 112, .5);
     border-radius: 20px;
 }
 
-.main-content::-webkit-scrollbar {
-    width: 0;
+.queue::-webkit-scrollbar {
+    width: 3px;
 }
 
-.main-content::-webkit-scrollbar-track {
+.queue::-webkit-scrollbar-track {
     background: rgba(112, 112, 112, .2);
 }
 
-.main-content::-webkit-scrollbar-thumb {
+.queue::-webkit-scrollbar-thumb {
     background-color: rgba(112, 112, 112, .5);
     border-radius: 20px;
 }
@@ -333,7 +341,7 @@ body{
     height: 100%;
     top: 0;
     left: 0;
-    display: flex;
+    /*display: flex;*/
     justify-content: space-around;
     z-index: var(--z-tooltip);
     overflow-y: auto;
@@ -360,7 +368,7 @@ body{
     width: calc(100% - 48px);
     display: block;
     overflow: hidden;
-    height: 60px;
+    /*height: 60px;*/
 }
 
 .add-todo .title{
