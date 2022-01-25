@@ -1,6 +1,6 @@
-
 /* todo : review the font familly and size */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
 :root {
 
     /*========== Primary colors ==========*/
@@ -30,10 +30,10 @@
 
     /*========== Font and typography ==========*/
     /* todo : :review this */
-    --body-font:'Rubik', sans-serif; 
+    --body-font: 'Rubik', sans-serif;
 
     /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
-    --body-font-size: 1.125rem ;
+    --body-font-size: 1.125rem;
 
     /*========== Font weight ==========*/
     --font-regular: 400;
@@ -46,26 +46,28 @@
     --z-modal: 1000;
 }
 
-*{
+* {
     /*padding: 0!important;*/
     margin: 0;
 }
-body{
-    padding: 0!important;
+
+body {
+    padding: 0 !important;
     /*background-color: deeppink;*/
 }
 
-.collapsing-app-bar{
-    background-image: url("../images/bg-mobile-light.jpg");
-    background-color: aqua;
+.collapsing-app-bar {
+    background-image: url("../images/bg-desktop-light.jpg");
+    background-color: rgba(0,0,0,.3);
     background-repeat: no-repeat;
     height: fit-content;
     background-size: 100% 100%;
     background-position: left top;
     width: 100%;
+    transition: all ease-in-out .30s;
 }
 
-.toolbar{
+.toolbar {
     background-color: transparent;
     height: 50px;
     width: 100%;
@@ -73,25 +75,26 @@ body{
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
- }
+}
 
-.collapsing-app-bar > .toolbar{
+.collapsing-app-bar > .toolbar {
     max-width: 700px;
-    margin: 0 auto!important;
-    padding-top: 10px; height: 60px;
+    margin: 0 auto !important;
+    padding-top: 10px;
+    height: 60px;
     display: none;
 }
 
-.app-name{
+.app-name {
     margin-left: 10px;
     color: white;
 }
 
-.dark-mode-toggle{
+.dark-mode-toggle {
     margin-right: 10px;
 }
 
-.app-bar-content{
+.app-bar-content {
     background-color: transparent;
     min-height: 150px;
     width: 100%;
@@ -103,13 +106,13 @@ body{
     /*border: solid red 1px;*/
 }
 
-.main-content{
+.main-content {
     /*background-color: rgba(0,0,0,.1);*/
     height: calc(100% - 60px);
     /*position: absolute;*/
     width: 100%;
-    top: 260px;
-    margin-bottom: 20px;
+    /*top: 260px;*/
+    /*margin-bottom: 20px;*/
     overflow: auto;
     /*padding-bottom: 30px!important;*/
 }
@@ -121,7 +124,7 @@ body{
     color: var(--DT-Dark-Grayish-Blue);
 }
 
-.search{
+.search {
     /*border:solid red 1px;*/
     position: relative;
     display: flex;
@@ -132,7 +135,7 @@ body{
 
 }
 
-.search > input{
+.search > input {
     border: 0;
     outline: 0;
     width: 100%;
@@ -142,68 +145,68 @@ body{
 
 }
 
-.search > i{
+.search > i {
     margin-top: 5px;
     margin-left: 5px;
     color: var(--DT-Soft-Grayish-Blue);
 
 }
 
-.search > button, .search > i{
+.search > button, .search > i {
     position: absolute;
     top: 8px;
 }
 
-.search > i{
+.search > i {
     left: 5px;
 }
 
-.search > button{
+.search > button {
     right: 5px;
 }
 
-.search-submit{
-    background-color: rgba(0,0,0,.07) !important;
+.search-submit {
+    background-color: rgba(0, 0, 0, .07) !important;
 }
 
-.todo{
+.todo {
     border-bottom: solid var(--LT-Very-Light-Grayish-Blue) 1px;
     padding: 0 10px;
     overflow: hidden;
     cursor: pointer;
 }
 
-.todo:last-child{
-    border-bottom: 0!important;
+.todo:last-child {
+    border-bottom: 0 !important;
 }
 
-.todo .radio{
+.todo .radio {
     margin-top: 10px;
-    margin-left: 0!important;
-    display: flex!important;
+    margin-left: 0 !important;
+    display: flex !important;
     align-items: center;
     align-content: center
 }
 
-.todo .radio img{
+.todo .radio img {
     width: 50%;
     height: 50%;
     margin-right: auto;
     margin-left: auto
 }
 
-.todo .radio.checked{
+.todo .radio.checked {
     background-color: black;
 }
 
-.title-container{
+.title-container {
     display: flex;
     justify-content: space-between;
 
 }
 
 .description-container,
-.title-container .title{
+.title-container .title {
     /*border: solid var(--LT-Dark-Grayish-Blue) 1px;*/
     border-radius: 4px;
     width: calc(100% - 75px);
@@ -212,7 +215,7 @@ body{
     text-overflow-ellipsis: end;
 }
 
-.description-container ,
+.description-container,
 .title-container .title {
     /*border: solid var(--LT-Dark-Grayish-Blue) 1px;*/
     border-radius: 4px;
@@ -226,62 +229,79 @@ body{
     font-weight: var(--font-bold);
     margin-top: 8px;
 }
+
 .description-container:focus,
-.title-container .title:focus{
-    border: solid var(--LT-Dark-Grayish-Blue) 2px!important;
+.title-container .title:focus {
+    border: solid var(--LT-Dark-Grayish-Blue) 2px !important;
     transition: all ease-in-out .15s;
     outline: var(--LT-Dark-Grayish-Blue);
 }
 
 
-.todo .controls{
+.todo .controls {
     border: 0;
     padding: 25px 3px 5px 0 !important;
-    background-color: white!important;
+    background-color: white !important;
     display: none;
 }
 
-.description-container{
+.description-container {
     border-radius: 4px;
     margin: 5px 0 5px 33px;
     display: none;
 }
 
-.todo > input{
+.todo > input {
     display: none;
 }
 
 
 /*todo add fade effect on details once the block are shown */
-.todo>input[name=todo-details-toggle]:checked ~ .description-container{
-    display: block!important;
+.todo > input[name=todo-details-toggle]:checked ~ .description-container {
+    display: block !important;
 }
 
-.todo>input[name=todo-details-toggle]:checked ~ .controls{
-    display: flex!important;
+.todo > input[name=todo-details-toggle]:checked ~ .controls {
+    display: flex !important;
 }
 
-.todo>input[name=content-editable-toggle]:checked ~ .title-container > .title{
+.todo > input[name=content-editable-toggle]:checked ~ .title-container > .title {
     border: solid var(--LT-Dark-Grayish-Blue) 1px;
 }
 
-.todo>input[name=content-editable-toggle]:checked ~ .description-container{
+.todo > input[name=content-editable-toggle]:checked ~ .description-container {
     border: solid var(--LT-Dark-Grayish-Blue) 1px;
 }
 
 
 /*todo : responsive behavior*/
-.visible-sm{display: flex!important;}
-.visible-xs{display: none!important;}
-@media screen and (max-width: 700px){
-    .visible-sm{display: none!important;}
-    .visible-xs{display: flex!important;}
-    .todo-list{
-        margin-right: 10px!important;
-        margin-left: 10px!important;
+.visible-sm {
+    display: flex !important;
+}
+
+.visible-xs {
+    display: none !important;
+}
+
+@media screen and (max-width: 700px) {
+    .visible-sm {
+        display: none !important;
     }
 
+    .visible-xs {
+        display: flex !important;
+    }
 
+    .todo-list {
+        margin-right: 10px !important;
+        margin-left: 10px !important;
+    }
+}
+
+@media screen and  (max-width: 550px) {
+    .collapsing-app-bar {
+        background-image: url("../images/bg-mobile-light.jpg");
+    }
 }
 
 
@@ -316,25 +336,7 @@ body{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.main-scene{
+.main-scene {
     background-color: transparent;
     position: absolute;
     width: 100%;
@@ -348,7 +350,7 @@ body{
 }
 
 
-.add-todo{
+.add-todo {
     /*border: solid white 1px;*/
     background-color: white;
     border-radius: 4px;
@@ -362,27 +364,37 @@ body{
     /*box-shadow: 0 0 6px var(--LT-Light-Grayish-Blue); todo : use it once the user is creating task*/
 }
 
-.add-todo> div:last-child{ /*c'est cette div qui va setendre et se retracter*/
+.add-todo > div:last-child { /*c'est cette div qui va setendre et se retracter*/
     /*border: solid black 2px;*/
     /*background-color: aqua;*/
     width: calc(100% - 48px);
     display: block;
     overflow: hidden;
-    /*height: 60px;*/
+    height: 60px;
+    transition: all ease-in-out .3s;
 }
 
-.add-todo .title{
+.add-todo > input[name="todo-details-toggle"] {
+    display: none;
+}
+
+.add-todo > input[name="todo-details-toggle"]:checked + div {
+    /*background-color: #ff253a;*/
+    height: fit-content;
+}
+
+.add-todo .title {
     /*border: solid red 1px;*/
     min-height: 20px;
     font-size: var(--body-font-size);
-    padding: 20px 20px 15px 10px!important;
+    padding: 20px 20px 15px 10px !important;
     border: 0;
     outline: 0;
     color: var(--LT-Dark-Grayish-Blue);
     font-weight: var(--font-bold);
 }
 
-.radio{
+.radio {
     border-radius: 100%;
     width: 24px;
     height: 24px;
@@ -390,21 +402,22 @@ body{
     margin: 15px 0 10px 20px;
 }
 
-.scrollable{
+.scrollable {
     overflow-y: auto;
     max-height: 300px;
     /*border-left: solid black 1px;*/
 }
-.content{
+
+.content {
     /*border: solid black 1px;*/
     width: 100%;
     word-wrap: break-word;
 }
 
-.description{
+.description {
     /*border-top: solid black 1px;*/
-    min-height: 100px;
-    padding: 15px 20px 15px 10px!important;
+    min-height: 40px;
+    padding: 15px 20px 15px 10px !important;
     font-size: .9rem;
     border: 0;
     outline: 0;
@@ -414,61 +427,63 @@ body{
     /*background-color: white;*/
 }
 
-.controls{
+.controls {
     border-top: solid var(--LT-Light-Grayish-Blue) 1px;
-    padding: 10px!important;
+    padding: 10px !important;
     display: flex;
     justify-content: space-between;
 }
 
-.queue{
-    height: 500px;
+.queue {
+    /*height: 500px;*/
     overflow: auto;
     /*border: solid blueviolet;*/
 }
 
-.todo-list{
+.todo-list {
     background-color: white;
     border-radius: 4px;
     border: solid var(--LT-Very-Light-Grayish-Blue) .5px;
     overflow: hidden;
     margin: 20px auto;
-    box-shadow: 0 0 6px var(--LT-Very-Light-Gray),0 3px 60px var(--LT-Very-Light-Gray);
+    box-shadow: 0 0 6px var(--LT-Very-Light-Gray), 0 3px 60px var(--LT-Very-Light-Gray);
     max-width: 680px;
 
     /*margin-bottom: 20px;*/
     /*box-shadow: 0 6px 50px 1px var(--LT-Light-Grayish-Blue);*/
 }
 
-.navigation{
+.navigation {
     border-top: solid var(--LT-Very-Light-Grayish-Blue) 1px;
-    padding: 15px 20px!important;
+    padding: 15px 20px !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: white;
 }
 
-.state-btn-container{
+.state-btn-container {
     display: flex;
     justify-content: space-around;
     /*border: solid red 1px;*/
 }
-.navigation > small{
+
+.navigation > small {
     color: var(--DT-Soft-Grayish-Blue);
 }
-.state-btn-container > div{
+
+.state-btn-container > div {
     /*border:solid blue 1px;*/
     width: fit-content;
 
 }
 
-.state-btn-container{
+.state-btn-container {
     /*border: solid blue 1px;*/
     /*width: fit-content;*/
     /*margin-left: auto;*/
     /*margin-right: auto;*/
-    padding: 10px 20px!important;
+    padding: 10px 20px !important;
     background-color: white;
     border-radius: 4px;
     border: solid var(--LT-Very-Light-Grayish-Blue) .5px;
@@ -477,12 +492,11 @@ body{
 }
 
 
-
 /*======================= btns ==========================*/
-.btn{
+.btn {
     border: 0;
     outline: 0;
-    padding: 5px 10px!important;
+    padding: 5px 10px !important;
     border-radius: 3px;
     background-color: transparent;
     margin-left: 5px;
@@ -493,67 +507,99 @@ body{
     /*box-shadow: 1px 2px 3px rgba(0,0,0,.1);*/
 }
 
-.btn:hover{
+.btn:hover {
     color: var(--DT-Very-Dark-Grayish-Blue);
-    background-color: rgba(0,0,0,.05);
+    background-color: rgba(0, 0, 0, .05);
 
 }
 
-.btn:focus{
+.btn:focus {
     color: var(--DT-Very-Dark-Grayish-Blue);
-    background-color: rgba(0,0,0,.05);
+    background-color: rgba(0, 0, 0, .05);
 }
 
-.btn.disabled{
+.btn.disabled {
     opacity: .5;
     cursor: not-allowed;
 }
 
-.btn.active{
-    background-color: rgba(0,0,0,.05);
+.btn.active {
+    background-color: rgba(0, 0, 0, .05);
     color: var(--Bright-Blue);
 }
 
-.btn.delete{
+.btn.delete {
     /*background-color: var(--primary-soft-red) !important;*/
     /*color: white;*/
 }
 
-.btn.delete:hover{
+.btn.delete:hover {
     background-color: var(--primary-pale-red) !important;
     color: white;
     transition: all ease-in-out .15s;
 }
 
-.btn.delete:focus{
+.btn.delete:focus {
     background-color: var(--primary-pale-red) !important;
     color: white;
     transition: all ease-in-out .15s;
 }
 
-.btn.save{
+.btn.save {
     /*background-color: var(--Bright-Blue) !important;*/
     /*color: white;*/
 }
 
-.btn.save:hover{
+.btn.save:hover {
     background-color: var(--Soft-Blue) !important;
     color: white;
     transition: all ease-in-out .15s;
 }
 
-.btn.save:focus{
+.btn.save:focus {
     background-color: var(--Soft-Blue) !important;
     color: white;
     transition: all ease-in-out .15s;
 }
 
-.btn.toggle-details{
+.btn.toggle-details {
     height: fit-content;
-    padding: 5px!important;
+    padding: 5px !important;
     margin-top: 10px
 }
 
+
+
+
+/*========================= skeleton loader =======================*/
+.skeleton {
+    opacity: .7;
+    animation: skeleton-loading .8s linear infinite alternate;
+    color: transparent!important;
+    border: 0;
+}
+
+.skeleton.title{
+    height: 25px;
+    padding: 0!important;
+    color: transparent;
+    margin-right: 0!important;
+    margin-top: 11px
+}
+
+.skeleton-text:last-child{
+    margin-bottom: 0;
+    width: 80%;
+}
+
+@keyframes skeleton-loading {
+    0%{
+        background-color: hsl(200, 20%, 80%);
+    }
+    100%{
+        background-color: hsl(200, 20%, 95%);
+    }
+}
 /*.app-mode-toggle:hover{*/
 /*    background-color: rgba(0,0,0,.05);*/
 /*}*/

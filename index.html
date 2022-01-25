@@ -16,7 +16,7 @@
 <!--<div class="img-container">-->
 <!--    &lt;!&ndash;    <img src="images/bg-mmobile-light.jpg" style="width: 100%" alt="">&ndash;&gt;-->
 <!--</div>-->
-<div class="main-scene" onscroll="scrolled(this)">
+<div class="main-scene" onscroll="scrolled(this)" >
     <div class="collapsing-app-bar" style="box-shadow: 0 4px 6px rgba(0,0,0,.4); z-index: 10">
         <div class="app-bar-content" style="">
             <div class="toolbar" style="">
@@ -25,35 +25,36 @@
                     <img src="images/icon-moon.svg" alt="">
                 </button>
             </div>
-            <div class="add-todo" onclick="onCreateTaskIntent(this)">
+            <div class="add-todo">
                 <div class="radio"></div>
+                <input type="checkbox" name="todo-details-toggle">
                 <div>
                     <div class="scrollable content">
-                        <div class="title" >
+                        <div class="title" onkeydown="typingStart(this)" onkeyup="typingEnd(this)" onclick="onCreateTaskIntent(this)">
                             Create new todo ...
                         </div>
-                        <div class="description" >
+                        <div style="" onkeydown="typingStart(this)" onfocusout="onFieldFocusOut(this)" class="description" >
                             Describe your task here ...
                         </div>
                     </div>
-                    <div class="controls">
+                    <div class="controls" style="">
                         <span></span>
                         <div>
                             <button class="btn save" onclick="submitTask(this)"><i class="fa fa-save"></i> Save</button>
-                            <button class="btn delete"><i class="fa fa-trash"></i> Drop</button>
+                            <button class="btn delete" onclick="dropTask(this)"><i class="fa fa-trash"></i> Drop</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="toolbar">
+        <div class="toolbar"  style="">
             <h1 class="app-name">TODO</h1>
             <button class="btn dark-mode-toggle">
                 <img src="images/icon-moon.svg" alt="">
             </button>
         </div>
     </div>
-    <div class="main-content">
+    <div class="main-content" onscroll="scrolled(this)">
         <div class="todo-list">
             <div class="search">
                 <i class="fa fa-search"></i>
@@ -62,43 +63,21 @@
                     <i class="fa fa-arrow-right"></i>
                 </button>
             </div>
-            <div class="queue">
-<!--                <div id="todo-item-1" class="todo">-->
-<!--                    <input name="todo-details-toggle" type="checkbox">-->
-<!--                    <input name="content-editable-toggle" type="checkbox">-->
-<!--                    <div class="title-container">-->
-<!--                        <div onclick="toggleTodoState(this)" class="radio">-->
-<!--                            <img src="images/icon-check.svg" alt="">-->
-<!--                        </div>-->
-<!--                        <div class="title"  style="margin-right: 0!important">-->
-<!--                            Finir de designer cette vue ...-->
-<!--                        </div>-->
-<!--                        <button onclick="toggleDetails(this)" class="btn toggle-details">-->
-<!--                            <i class="fa fa-caret-down"></i>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                    <div class="description-container" >-->
-<!--                        Fondre la page et la rendre pleinement responsive pour les divers support.-->
-<!--                    </div>-->
-<!--                    <div class="controls">-->
-<!--                        <span></span>-->
-<!--                        <div>-->
-<!--                            <button onclick="saveChanges(this)" class="btn save">-->
-<!--                                <i class="fa fa-save"></i> Save-->
-<!--                            </button>-->
-<!--                            <button onclick="editTodo(this)" class="btn save">-->
-<!--                                <i class="fa fa-pen"></i> Edit-->
-<!--                            </button>-->
-<!--                            <button onclick="deleteTodo(this)" class="btn delete">-->
-<!--                                <i class="fa fa-trash"></i> Delete-->
-<!--                            </button>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
+            <div class="queue" > <!--onscroll="scrolled(this)"-->
+                <div class="todo">
+                    <div class="title-container">
+                        <div onclick="" class="radio skeleton" style="align-self: center"></div>
+                        <div class="title skeleton"  style=" ">
+                            Finir de designer cette vue ...
+                        </div>
+                        <button onclick="" disabled class="btn skeleton toggle-details">
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="navigation">
-                <small>5 items left</small>
+                <small class="skeleton">5 items left</small>
                 <div class="visible-sm" style="display: flex">
                     <button class="btn active">all</button>
                     <button class="btn">Active</button>
@@ -115,7 +94,7 @@
             </div>
         </div>
 
-        <span>Drag and drop to reprder list</span>
+        <span >Drag and drop to reprder list</span>
     </div>
 
 
