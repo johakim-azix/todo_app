@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             data = JSON.parse(data)
             document.getElementsByClassName("queue")[0].innerHTML = ""
             tasksQueue = new TasksQueue(document.getElementsByClassName("queue")[0], data.tasks)
+            document.getElementById("active-tasks-count-label").innerText = tasksQueue.unCompletedTasksCount()+" items left"
         })
 })
 
@@ -45,11 +46,11 @@ function initMainScene() {
     window.addEventListener("resize", () => {
         setHeight(mainContentLayout, tasksQueue)
     })
+
     addLoaderAnim()
 }
 
 function setHeight(mainContentLayout, taskQueueLayout) {
-    // alert(window.innerHeight)
     mainContentLayout.style = "height : " + (window.innerHeight - 70) + "px!important"
     taskQueueLayout.style = "max-height : " + (window.innerHeight - (80)) + "px!important"
 }
@@ -61,11 +62,11 @@ function removeLoaderAnim() {
     }
 }
 
-function addLoaderAnim(){
+function addLoaderAnim() {
     let queue = document.getElementsByClassName("queue")[0]
     let html = ""
     for (let i = 0; i < 10; i++) {
-        html+= "<div class=\"todo\">\n" +
+        html += "<div class=\"todo\">\n" +
             "                    <div class=\"title-container\">\n" +
             "                        <div onclick=\"\" class=\"radio skeleton\" style=\"align-self: center\"></div>\n" +
             "                        <div class=\"title skeleton\"  style=\" \">\n" +
@@ -82,7 +83,7 @@ function addLoaderAnim(){
 
 function scrolled(element) {
     let mainScene = document.getElementsByClassName("main-scene")[0]
-    if (element.classList.toString() === "main-content") {
+    if (element.classList.contains("main-content")) {
         let currentMCScrollTopVal = element.scrollTop
         if ((currentMCScrollTopVal - lastMCScrollTopVal) > 0) { //means we are scrolling down
             mainScene.scrollTo({
@@ -142,18 +143,36 @@ function fieldHasPlaceHolder(field) {
 }
 
 function submitTask(button) {
-    console.log("hhhh")
-    try { //todo : try to save in idb
+    try {
         let addTodoContainer = button.parentElement.parentElement.parentElement.parentElement
         let titleField = addTodoContainer.getElementsByClassName("title")[0]
         let descriptionField = addTodoContainer.getElementsByClassName("description")[0]
 
-
+        let task = new Task(titleField.innerText.trim(), descriptionField.innerText.trim())
+        tasksQueue.setTask(task)
         resetAddTodoContainer(addTodoContainer)
+        isAddingTask = false
     } catch (exception) {
 
     }
 }
+
+function clearCompletedTasks(button) {
+    tasksQueue.clearCompletedTasks()
+}
+
+function showAllTasks(button) {
+    tasksQueue.showAllTasks()
+}
+
+function showActiveTasks(button) {
+    tasksQueue.hideUnCompletedTasks()
+}
+
+function showCompletedTasks(button) {
+    tasksQueue.hideCompletedTasks()
+}
+
 
 function dropTask(button) {
     let addTodoContainer = button.parentElement.parentElement.parentElement.parentElement
@@ -189,8 +208,6 @@ function resetAddTodoContainer(addTodoContainer) {
     titleField.contentEditable = false
     descriptionField.contentEditable = false
     disableBtn([btnSave])
-    //todo : remove active and disabled states on every buttons
-
 }
 
 function toggleTodoState(check) {
@@ -201,7 +218,13 @@ function toggleTodoState(check) {
     // strTodo = JSON.stringify(todo)
     // let jsonTodo = JSON.parse(strTodo)
     // alert(new Todo(jsonTodo.title, jsonTodo.description).getSth())
+    document.getElementById("active-tasks-count-label").innerText = tasksQueue.unCompletedTasksCount()+" items left"
 }
+
+function toggleTheme(button) {
+    // todo : star from here
+}
+
 
 function toggleDetails(button) {
     if (currentlyEditedItem !== null) {
@@ -232,12 +255,10 @@ function saveChanges(button) {
     let titleField = todoItem.getElementsByClassName("title")[0]
     let descriptionField = todoItem.getElementsByClassName("description-container")[0]
 
-    //todo try saving in idb before updating the view
-    try {
-
-    } catch (exception) {
-
-    }
+    let task = tasksQueue.getTask(parseInt(todoItem.getAttribute("id").split("-")[2]))
+    task.title = titleField.innerText.trim()
+    task.description = descriptionField.innerText.trim()
+    tasksQueue.updateTask(parseInt(todoItem.getAttribute("id").split("-")[2]), task)
     currentlyEditedItem = null
     contentEditableToggle.checked = false
     titleField.contentEditable = false
@@ -263,7 +284,7 @@ function deleteTodo(button) {
     let contentEditableToggle = todoItem.getElementsByTagName('input')[1]
     let titleField = todoItem.getElementsByClassName("title")[0]
     let descriptionField = todoItem.getElementsByClassName("description-container")[0]
-
+    tasksQueue.removeTask(parseInt(todoItem.getAttribute("id").split("-")[2]))
 }
 
 function deleteTodoIntent(button) {
@@ -280,7 +301,6 @@ function enableBtn(btns = []) {
     for (let i = 0; i < btns.length; i++) {
         btns[i].disabled = false
         btns[i].classList.remove("disabled")
-        // removeClass(btns[i],["disabled"])
     }
 }
 
@@ -288,29 +308,8 @@ function disableBtn(btns = []) {
     btns.forEach(btn => {
         btn.disabled = true
         btn.classList.add("disabled")
-
-        // addClass(btn,["disabled"])
     })
 }
-
-// function addClass(element, classes) {
-//     let strClassList = element.classList.toString()
-//     classes.forEach(cls => {
-//         strClassList += " "+cls
-//     })
-//     element.classList = strClassList
-// }
-//
-// function removeClass(element, givenClasses) {
-//     let eltClassList = element.classList
-//     let strClassList = ""
-//     givenClasses.forEach(givenClass => {
-//         eltClassList.forEach(eltClass => {
-//             if (givenClass !== eltClass) strClassList+= " "+eltClass
-//         })
-//     })
-//     element.classList = strClassList
-// }
 
 function getTodoItemViewId(button) {
     let todoItemViewId = null
@@ -326,22 +325,80 @@ class TasksQueue {
     constructor(queueLayout, tasks) {
         this.layout = queueLayout
         this.tasks = tasks
-        this.renderTasks()
+        this.renderTasks(tasks)
     }
 
-    renderTasks() {
-        this.tasks.forEach((task, index) => {
+    renderTasks(tasks) {
+        let reversedTasks = tasks.reverse()
+        reversedTasks.forEach((task, index) => {
             this.layout.appendChild(new TasksItemViewHolder().bindViewHolder(task, index))
         })
     }
-
 
     getTask(index) {
         return this.tasks[index]
     }
 
-    setTask(todoObj) {
-        this.tasks.push(todoObj)
+    updateTask(index, task) {
+        this.tasks[index] = task
+    }
+
+    removeTask(index) {
+        this.tasks.splice(index, 1)
+        this.layout.removeChild(document.getElementById("task-item-" + index))
+        if (this.tasks.length === 0) {
+            this.layout.innerHTML = this.renderQueueEmptyPlaceHolder()
+        }
+    }
+
+    setTask(task) {
+        this.tasks.push(task)
+        this.layout.prepend(new TasksItemViewHolder().bindViewHolder(task, this.tasks.length - 1))
+    }
+
+    clearCompletedTasks() {
+        this.tasks.forEach((task, index) => {
+            if (task.isCompleted) this.removeTask(index)
+        })
+    }
+
+    hideCompletedTasks(){
+        let unCompletedTasks = []
+        this.tasks.forEach(task => {
+            if (task.isCompleted) unCompletedTasks.push(task)
+        })
+        if (unCompletedTasks.length !==0){
+            this.layout.innerHTML = ""
+            this.renderTasks(unCompletedTasks)
+        }else {
+            this.layout.innerHTML = this.renderQueueEmptyPlaceHolder()
+        }
+    }
+
+    hideUnCompletedTasks(){
+        let completedTasks = []
+        this.tasks.forEach(task => {
+            if (!task.isCompleted) completedTasks.push(task)
+        })
+        if (completedTasks.length !==0){
+            this.layout.innerHTML = ""
+            this.renderTasks(completedTasks)
+        }else {
+            this.layout.innerHTML = this.renderQueueEmptyPlaceHolder()
+        }
+    }
+
+    showAllTasks(){
+        this.layout.innerHTML = ""
+        this.renderTasks(this.tasks)
+    }
+
+    unCompletedTasksCount(){
+        let completedTasksCount = 0
+        this.tasks.forEach((task) => {
+            if (task.isCompleted) completedTasksCount++
+        })
+        return this.tasks.length-completedTasksCount
     }
 
     toggleTaskState(index) {
@@ -349,14 +406,18 @@ class TasksQueue {
         return true
     }
 
+    renderQueueEmptyPlaceHolder(){
+        //todo : complete this part
+        return  "<p class='description' style='text-align: center'> Sorry, but we didn't find tasks!!!</p> "
+    }
 }
 
 class TasksItemViewHolder {
-    static TAKS_ITEM_VIEW_HOLDER_TEMPLATE = "<div id=\"task-item-id\" class=\"todo\">\n" +
+    static TAKS_ITEM_VIEW_HOLDER_TEMPLATE = "<div id=\"task-item-id\" class=\"todo dark\">\n" +
         "                    <input name=\"todo-details-toggle\" type=\"checkbox\">\n" +
         "                    <input name=\"content-editable-toggle\" type=\"checkbox\">\n" +
         "                    <div class=\"title-container\">\n" +
-        "                        <div onclick=\"toggleTodoState(this)\" class=\"radio\">\n" +
+        "                        <div onclick=\"toggleTodoState(this)\" class=\"radio dark\">\n" +
         "                            <img src=\"images/icon-check.svg\" alt=\"\">\n" +
         "                        </div>\n" +
         "                        <div class=\"title\"  style=\"margin-right: 0!important\">\n" +
@@ -403,7 +464,7 @@ class TasksItemViewHolder {
     }
 }
 
-class Todo {
+class Task {
     constructor(title, description, isCompleted = false) {
         this.title = title
         this.description = description

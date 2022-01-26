@@ -17,16 +17,16 @@
 <!--    &lt;!&ndash;    <img src="images/bg-mmobile-light.jpg" style="width: 100%" alt="">&ndash;&gt;-->
 <!--</div>-->
 <div class="main-scene" onscroll="scrolled(this)" >
-    <div class="collapsing-app-bar" style="box-shadow: 0 4px 6px rgba(0,0,0,.4); z-index: 10">
+    <div class="collapsing-app-bar dark" style="box-shadow: 0 4px 6px rgba(0,0,0,.4); z-index: 10">
         <div class="app-bar-content" style="">
             <div class="toolbar" style="">
                 <h1 class="app-name">TODO</h1>
-                <button class="btn dark-mode-toggle">
-                    <img src="images/icon-moon.svg" alt="">
+                <button onclick="toggleTheme(this)" class="btn dark-mode-toggle">
+                    <img src="images/icon-sun.svg" alt="">
                 </button>
             </div>
-            <div class="add-todo">
-                <div class="radio"></div>
+            <div class="add-todo dark">
+                <div class="radio dark"></div>
                 <input type="checkbox" name="todo-details-toggle">
                 <div>
                     <div class="scrollable content">
@@ -37,7 +37,7 @@
                             Describe your task here ...
                         </div>
                     </div>
-                    <div class="controls" style="">
+                    <div class="controls">
                         <span></span>
                         <div>
                             <button class="btn save" onclick="submitTask(this)"><i class="fa fa-save"></i> Save</button>
@@ -54,16 +54,16 @@
             </button>
         </div>
     </div>
-    <div class="main-content" onscroll="scrolled(this)">
-        <div class="todo-list">
-            <div class="search">
+    <div class="main-content dark" onscroll="scrolled(this)">
+        <div class="todo-list dark">
+            <div class="search dark">
                 <i class="fa fa-search"></i>
                 <input type="text" placeholder="Find a todo...">
                 <button class="btn search-submit">
                     <i class="fa fa-arrow-right"></i>
                 </button>
             </div>
-            <div class="queue" > <!--onscroll="scrolled(this)"-->
+            <div class="queue">
                 <div class="todo">
                     <div class="title-container">
                         <div onclick="" class="radio skeleton" style="align-self: center"></div>
@@ -76,21 +76,21 @@
                     </div>
                 </div>
             </div>
-            <div class="navigation">
-                <small class="skeleton">5 items left</small>
+            <div class="navigation dark">
+                <small class="skeleton dark" id="active-tasks-count-label"></small>
                 <div class="visible-sm" style="display: flex">
-                    <button class="btn active">all</button>
-                    <button class="btn">Active</button>
-                    <button class="btn">Completed</button>
+                    <button class="btn active" onclick="showAllTasks(this)">all</button>
+                    <button class="btn" onclick="showActiveTasks(this)">Active</button>
+                    <button class="btn" onclick="showCompletedTasks(this)">Completed</button>
                 </div>
-                <button class="btn">Clear Completed</button>
+                <button class="btn" onclick="clearCompletedTasks(this)">Clear Completed</button>
             </div>
         </div>
-        <div style="display: none" class="visible-xs state-btn-container">
+        <div style="display: none" class="visible-xs state-btn-container dark">
             <div>
-                <button class="btn active">all</button>
-                <button class="btn">Active</button>
-                <button class="btn">Completed</button>
+                <button class="btn active" onclick="showAllTasks(this)">all</button>
+                <button class="btn" onclick="showActiveTasks(this)">Active</button>
+                <button class="btn" onclick="showCompletedTasks(this)">Completed</button>
             </div>
         </div>
 

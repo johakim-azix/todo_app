@@ -107,14 +107,9 @@ body {
 }
 
 .main-content {
-    /*background-color: rgba(0,0,0,.1);*/
     height: calc(100% - 60px);
-    /*position: absolute;*/
     width: 100%;
-    /*top: 260px;*/
-    /*margin-bottom: 20px;*/
     overflow: auto;
-    /*padding-bottom: 30px!important;*/
 }
 
 .main-content > span {
@@ -125,14 +120,12 @@ body {
 }
 
 .search {
-    /*border:solid red 1px;*/
     position: relative;
     display: flex;
     height: 40px;
     overflow: hidden;
     justify-content: space-between;
     border-bottom: solid var(--LT-Very-Light-Grayish-Blue) 1px;
-
 }
 
 .search > input {
@@ -142,7 +135,7 @@ body {
     height: 40px;
     padding: 0 40px 0 35px;
     color: var(--DT-Soft-Grayish-Blue);
-
+    background: transparent;
 }
 
 .search > i {
@@ -207,7 +200,6 @@ body {
 
 .description-container,
 .title-container .title {
-    /*border: solid var(--LT-Dark-Grayish-Blue) 1px;*/
     border-radius: 4px;
     width: calc(100% - 75px);
     margin-top: 5px;
@@ -217,7 +209,6 @@ body {
 
 .description-container,
 .title-container .title {
-    /*border: solid var(--LT-Dark-Grayish-Blue) 1px;*/
     border-radius: 4px;
     padding: 5px;
     cursor: pointer;
@@ -241,7 +232,6 @@ body {
 .todo .controls {
     border: 0;
     padding: 25px 3px 5px 0 !important;
-    background-color: white !important;
     display: none;
 }
 
@@ -274,7 +264,7 @@ body {
 }
 
 
-/*todo : responsive behavior*/
+/*===================== responsive behavior ==========================*/
 .visible-sm {
     display: flex !important;
 }
@@ -302,10 +292,14 @@ body {
     .collapsing-app-bar {
         background-image: url("../images/bg-mobile-light.jpg");
     }
+
+    .collapsing-app-bar.dark{
+        background-image: url("../images/bg-mobile-dark.jpg");
+    }
 }
 
 
-/*todo : scroll behavior area */
+/*=================== scroll behavior area =====================*/
 .main-content::-webkit-scrollbar,
 .main-scene::-webkit-scrollbar {
     width: 0;
@@ -351,16 +345,14 @@ body {
 
 
 .add-todo {
-    /*border: solid white 1px;*/
     background-color: white;
     border-radius: 4px;
     overflow: hidden;
     height: fit-content;
     margin: 40px 10px 10px 10px;
-    /*margin-bottom: 30px;*/
     display: flex;
     align-items: flex-start;
-    box-shadow: 0 0 6px var(--LT-Very-Dark-Grayish-Blue);
+    /*box-shadow: 0 0 6px var(--LT-Very-Dark-Grayish-Blue);*/
     /*box-shadow: 0 0 6px var(--LT-Light-Grayish-Blue); todo : use it once the user is creating task*/
 }
 
@@ -415,7 +407,6 @@ body {
 }
 
 .description {
-    /*border-top: solid black 1px;*/
     min-height: 40px;
     padding: 15px 20px 15px 10px !important;
     font-size: .9rem;
@@ -423,8 +414,6 @@ body {
     outline: 0;
     color: var(--LT-Dark-Grayish-Blue);
     font-weight: var(--font-regular);
-
-    /*background-color: white;*/
 }
 
 .controls {
@@ -435,9 +424,8 @@ body {
 }
 
 .queue {
-    /*height: 500px;*/
+    min-height: 300px;
     overflow: auto;
-    /*border: solid blueviolet;*/
 }
 
 .todo-list {
@@ -446,10 +434,9 @@ body {
     border: solid var(--LT-Very-Light-Grayish-Blue) .5px;
     overflow: hidden;
     margin: 20px auto;
-    box-shadow: 0 0 6px var(--LT-Very-Light-Gray), 0 3px 60px var(--LT-Very-Light-Gray);
+    /*box-shadow: 0 0 6px var(--LT-Very-Light-Gray), 0 3px 60px var(--LT-Very-Light-Gray);*/
     max-width: 680px;
 
-    /*margin-bottom: 20px;*/
     /*box-shadow: 0 6px 50px 1px var(--LT-Light-Grayish-Blue);*/
 }
 
@@ -459,13 +446,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background-color: transparent;
 }
 
 .state-btn-container {
     display: flex;
     justify-content: space-around;
-    /*border: solid red 1px;*/
 }
 
 .navigation > small {
@@ -473,16 +459,10 @@ body {
 }
 
 .state-btn-container > div {
-    /*border:solid blue 1px;*/
     width: fit-content;
-
 }
 
 .state-btn-container {
-    /*border: solid blue 1px;*/
-    /*width: fit-content;*/
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
     padding: 10px 20px !important;
     background-color: white;
     border-radius: 4px;
@@ -600,7 +580,32 @@ body {
         background-color: hsl(200, 20%, 95%);
     }
 }
-/*.app-mode-toggle:hover{*/
-/*    background-color: rgba(0,0,0,.05);*/
-/*}*/
 
+/*=========================== dark theme =============================*/
+.main-content.dark{
+    background-color: var(--DT-Very-Dark-Blue);
+}
+
+.collapsing-app-bar.dark{
+    background-image: url("../images/bg-desktop-dark.jpg");
+}
+
+.state-btn-container.dark,
+.todo-list.dark,
+.add-todo.dark{
+    background: var(--DT-Very-Dark-Desaturated-Blue);
+    border: 0;
+}
+
+.search.dark{
+    border-bottom: solid var(--DT-Dark-Grayish-Blue) 1px;
+}
+.navigation.dark{
+    border-top: solid var(--DT-Dark-Grayish-Blue) 1px;
+}
+.radio.dark{
+    border: solid var(--DT-Dark-Grayish-Blue) 1px;
+}
+.todo.dark{
+    border-bottom: solid var(--DT-Dark-Grayish-Blue) 1px;
+}

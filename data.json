@@ -32,7 +32,7 @@
     },
     {
       "id" : 6,
-      "isCompleted" : true,
+      "isCompleted" : false,
       "title" : "Build vew holder class",
       "description" : "The class responsible to create and bind the item view before rendering it"
     },
